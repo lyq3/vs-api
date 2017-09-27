@@ -1,9 +1,9 @@
 <template>
-    <div class="layout" :class="{'layout-hide-text': spanLeft < 5}" >
+    <div class="layout" :class="{'layout-hide-text': spanLeft < 4}" >
         <Row type="flex" style="position:fixed;top:0px;left:0px;right:0px;bottom:0px">
             <Col :span="spanLeft" class="layout-menu-left" >
                 <Menu active-name="1" theme="dark" width="auto" >
-                    <div class="layout-logo-left" :class="{'layout-title': spanLeft < 5}">CNCT-API管理系统</div>
+                    <div class="layout-logo-left" :class="{'layout-title': spanLeft < 4}">CNCT-API管理系统</div>
                     <MenuItem name="1" style="padding-left:13px">
                         <Icon type="ios-navigate" :size="iconSize"></Icon>
                         <span class="layout-text">项目管理</span>
@@ -52,8 +52,8 @@
     export default {
         data () {
             return {
-                spanLeft: 5,
-                spanRight: 19
+                spanLeft: 4,
+                spanRight: 20
             }
         },
         components:{
@@ -61,17 +61,17 @@
         },
         computed: {
             iconSize () {
-                return this.spanLeft === 5 ? 14 : 30;
+                return this.spanLeft === 4 ? 14 : 30;
             }
         },
         methods: {
             toggleClick () {
-                if (this.spanLeft === 5) {
+                if (this.spanLeft === 4) {
                     this.spanLeft = 1;
                     this.spanRight = 23;
                 } else {
-                    this.spanLeft = 5;
-                    this.spanRight = 19;
+                    this.spanLeft = 4;
+                    this.spanRight = 20;
                 }
             }
         }
