@@ -3,12 +3,9 @@
     <Menu mode="horizontal" :theme="theme1" active-name="1">
         <MenuItem name="1">
             <Icon type="ios-paper"></Icon>
-            内容管理
+            Mock数据
         </MenuItem>
-        <MenuItem name="2">
-            <Icon type="ios-people"></Icon>
-            用户管理
-        </MenuItem>
+
         <Submenu name="3">
             <template slot="title">
                 <Icon type="stats-bars"></Icon>
@@ -28,6 +25,16 @@
             <Icon type="settings"></Icon>
             综合设置
         </MenuItem>
+        <Submenu name="2">
+            <template slot="title">
+                <Icon type="ios-people"></Icon>
+                罗云强
+            </template>
+                <MenuItem name="2-1"><Icon type="ios-people"></Icon>个人信息</MenuItem>
+                <MenuItem name="2-2"><Icon type="ios-people"></Icon>我的项目</MenuItem>
+                <MenuItem name="2-3"><Icon type="ios-people"></Icon>退出登录</MenuItem>
+
+        </Submenu>
     </Menu>
 
   </div>
