@@ -1,92 +1,83 @@
 <template>
-  <Table border :columns="apiDetail" :data="apiData"></Table>
+  <Collapse v-model="value1">
+    <Panel name="1">
+        <span class = 'panel-title'>接口说明</span>
+        <p slot="content" >
+           <Table border :columns="apiDetail" :data="apiData"></Table>
+        </p>
+    </Panel>
+       <Panel name="2">
+           <span class = 'panel-title'>请求头</span>
+           <p slot="content">
+             <Table border :columns="apiDetail" :data="apiData"></Table>
+           </p>
+       </Panel>
+       <Panel name="3">
+           <span class = 'panel-title'>请求参数</span>
+           <p slot="content">
+             <Table border :columns="apiDetail" :data="apiData"></Table>
+           </p>
+       </Panel>
+       <Panel name="4">
+           <span class = 'panel-title'>响应Model</span>
+           <p slot="content">
+             <Table border :columns="apiDetail" :data="apiData"></Table>
+           </p>
+       </Panel>
+   </Collapse>
+
 </template>
 
 <script>
   export default {
     data(){
       return {
+        value1: ['1','2','3'],
         apiDetail :
           [
                     {
-                        title: '姓名',
-                        key: 'name',
-                        render: (h, params) => {
-                            return h('div', [
-                                h('Icon', {
-                                    props: {
-                                        type: 'person'
-                                    }
-                                }),
-                                h('strong', params.row.name)
-                            ]);
-                        }
-                    },
-                    {
-                        title: '年龄',
-                        key: 'age'
-                    },
-                    {
-                        title: '地址',
-                        key: 'address'
-                    },
-                    {
-                        title: '操作',
-                        key: 'action',
+                        title: '标题',
+                        key: 'title',
                         width: 150,
                         align: 'center',
-                        render: (h, params) => {
-                            return h('div', [
-                                h('Button', {
-                                    props: {
-                                        type: 'primary',
-                                        size: 'small'
-                                    },
-                                    style: {
-                                        marginRight: '5px'
-                                    },
-                                    on: {
-                                        click: () => {
-                                            this.show(params.index)
-                                        }
-                                    }
-                                }, '查看'),
-                                h('Button', {
-                                    props: {
-                                        type: 'error',
-                                        size: 'small'
-                                    },
-                                    on: {
-                                        click: () => {
-                                            this.remove(params.index)
-                                        }
-                                    }
-                                }, '删除')
-                            ]);
-                        }
+                        // render: (h, params) => {
+                        //     return
+                        //     h('div', [
+                        //         h('Icon', {
+                        //             props: {
+                        //                 type: 'person'
+                        //             }
+                        //         }),
+                        //         h('strong', params.row.name)
+                        //     ]);
+                        // }
+                    },
+                    {
+                        title: '内容',
+                        key: 'content'
                     }
                 ],
               apiData : [
                     {
-                        name: '王小明',
-                        age: 18,
-                        address: '北京市朝阳区芍药居'
+                        title: '接口URL',
+                        content: '/sendMessage/sendVerifyMessage'
                     },
                     {
-                        name: '张小刚',
-                        age: 25,
-                        address: '北京市海淀区西二旗'
+                        title: '说明',
+                        content: '发送验证码'
                     },
                     {
-                        name: '李小红',
-                        age: 30,
-                        address: '上海市浦东新区世纪大道'
+                        title: '请求方式',
+                        content: 'POST'
                     },
                     {
-                        name: '周小伟',
-                        age: 26,
-                        address: '深圳市南山区深南大道'
-                    }
+                        title: 'consumes',
+                        content: 'application/json'
+                    },
+                    {
+                        title: 'produces',
+                        content: '*/*'
+                    },
                 ]
       }
     },
@@ -97,5 +88,18 @@
 </script>
 
 <style scoped>
-
+  .panel-title {
+    color: green;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 18px;
+  }
+  .ivu-collapse-content-box {
+    padding: 0;
+    margin: 0;
+  }
+  .ivu-collapse-content {
+    padding: 0;
+    margin: 0;
+  }
 </style>

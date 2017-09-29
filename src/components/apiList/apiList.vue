@@ -57,15 +57,15 @@
     </Col>
     <Col :span="autospan">
       <!--这里是主体内容-->
-      <Tabs>
+      <Tabs style="border-left:1px solid #DDDEE1;">
         <TabPane label="接口信息" icon="social-apple">
           <v-apiShow></v-apiShow>
         </TabPane>
         <TabPane label="接口调试" icon="social-windows">
-          <Button type="info">信息按钮</Button>
-          <Button type="success">成功按钮</Button>
-          <Button type="warning">警告按钮</Button>
-          <Button type="error">错误按钮</Button>
+
+          <v-apiTest style="width:90%;"></v-apiTest>
+
+
 
         </TabPane>
         <TabPane label="接口同步" icon="social-tux">
@@ -85,7 +85,8 @@
 </template>
 <script>
   import Bus from '@/common/bus.js'
-  import apiShow from './apiShow'
+  import ApiShow from './apiShow'
+  import ApiTest from './apiTest'
   export default {
     data(){
       return {
@@ -94,7 +95,8 @@
     }
       ,
       components: {
-        'v-apiShow' : apiShow
+        'v-apiShow' : ApiShow,
+        'v-apiTest' : ApiTest
       },
         methods: {
 
@@ -110,7 +112,7 @@
 </script>
 <style scoped>
   .api-btn-left {
-    margin: 10px 0px 10px 20px;
+    margin: 10px 0px 0px 20px;
   }
   .api-btn-left button {
     margin-right: 15px;
