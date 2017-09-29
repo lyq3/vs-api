@@ -3,6 +3,10 @@
   <Row>
   <Col span="4">
     <Menu active-name="1-2" width="auto" :open-names="['1']">
+      <div class="api-btn-left">
+        <Button type="info" size="small" icon="android-add">添加接口</Button>
+        <Button type="success" size="small" icon="android-create">修改接口</Button>
+      </div>
         <Submenu name="1">
             <template slot="title">
                 <Icon type="ios-analytics"></Icon>
@@ -53,28 +57,35 @@
     </Col>
     <Col :span="autospan">
       <!--这里是主体内容-->
-      <Button>Default</Button>
-      <Button type="primary">Primary</Button>
-      <Button type="ghost">Ghost</Button>
-      <Button type="dashed">Dashed</Button>
-      <Button type="text">Text</Button>
-      <br><br>
-      <Button type="info">信息按钮</Button>
-      <Button type="success">成功按钮</Button>
-      <Button type="warning">警告按钮</Button>
-      <Button type="error">错误按钮</Button>
-      <Alert type="success" show-icon style="margin:10px 0">接口开发进度</Alert>
-      <Progress :percent="25"></Progress>
-    <Progress :percent="45" status="active"></Progress>
-    <Progress :percent="65" status="wrong"></Progress>
-    <Progress :percent="100"></Progress>
-    <Progress :percent="25" hide-info></Progress>
+      <Tabs>
+        <TabPane label="接口信息" icon="social-apple">
+          <v-apiShow></v-apiShow>
+        </TabPane>
+        <TabPane label="接口调试" icon="social-windows">
+          <Button type="info">信息按钮</Button>
+          <Button type="success">成功按钮</Button>
+          <Button type="warning">警告按钮</Button>
+          <Button type="error">错误按钮</Button>
+
+        </TabPane>
+        <TabPane label="接口同步" icon="social-tux">
+          <Alert type="success" show-icon style="margin:10px 0">接口开发进度</Alert>
+          <Progress :percent="25"></Progress>
+        <Progress :percent="45" status="active"></Progress>
+        <Progress :percent="65" status="wrong"></Progress>
+        <Progress :percent="100"></Progress>
+        <Progress :percent="25" hide-info></Progress>
+        </TabPane>
+    </Tabs>
+
+
     </Col>
   </Row>
   </div>
 </template>
 <script>
   import Bus from '@/common/bus.js'
+  import apiShow from './apiShow'
   export default {
     data(){
       return {
@@ -82,6 +93,9 @@
       }
     }
       ,
+      components: {
+        'v-apiShow' : apiShow
+      },
         methods: {
 
         },
@@ -94,3 +108,11 @@
         }
     }
 </script>
+<style scoped>
+  .api-btn-left {
+    margin: 10px 0px 10px 20px;
+  }
+  .api-btn-left button {
+    margin-right: 15px;
+  }
+</style>
