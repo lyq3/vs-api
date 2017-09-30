@@ -124,7 +124,7 @@
     overflow:auto;
     height:83%;
     padding: 0;
-    margin: 0
+    margin: 0;width: inherit;
   }
 
   ::-webkit-scrollbar{

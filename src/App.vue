@@ -5,7 +5,7 @@
                 <!--左边导航栏-->
                 <v-leftbar :spanLeft="spanLeft" :spanRight = "spanRight"></v-leftbar>
             </Col>
-            <Col :span="spanRight" >
+            <Col :span="spanRight">
                 <div class="layout-header">
                     <Button type="text" @click="toggleClick">
                         <Icon type="navicon" size="32"></Icon>
