@@ -60,17 +60,17 @@
     <Col :span="autospan">
       <!--这里是主体内容-->
       <Tabs class="repositon">
-        <TabPane label="接口信息" icon="social-apple">
+        <TabPane label="接口信息" icon="information-circled">
           <v-apiShow></v-apiShow>
         </TabPane>
-        <TabPane label="接口调试" icon="social-windows">
+        <TabPane label="接口调试" icon="speedometer">
 
-          <v-apiTest style="width:90%;"></v-apiTest>
+          <v-apiTest ></v-apiTest>
 
 
 
         </TabPane>
-        <TabPane label="接口同步" icon="social-tux">
+        <TabPane label="接口同步" icon="loop">
           <Alert type="success" show-icon style="margin:10px 0">接口开发进度</Alert>
           <Progress :percent="25"></Progress>
         <Progress :percent="45" status="active"></Progress>
@@ -124,7 +124,8 @@
     overflow:auto;
     height:83%;
     padding: 0;
-    margin: 0;width: inherit;
+    margin: 0;
+    width: inherit;
   }
 
   ::-webkit-scrollbar{
