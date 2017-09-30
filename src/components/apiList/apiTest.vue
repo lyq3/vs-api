@@ -35,8 +35,8 @@
           <table class = "card-table" >
             <tr class = "onetr">
               <td style="width:10%">勾选</td>
-              <td style="width:40%">标签</td>
-              <td style="width:40%">内容</td>
+              <td style="width:40%">参数名</td>
+              <td style="width:40%">参数值</td>
               <td style="width:10%">操作</td>
             </tr>
             <tr>
@@ -75,26 +75,15 @@
     </Card>
     <Card class="cardform" padding = "0">
             <div class = "card-title">返回结果</div>
-          <table class = "card-table" >
-            <tr class = "onetr">
-              <td style="width:10%">勾选</td>
-              <td style="width:40%">标签</td>
-              <td style="width:40%">内容</td>
-              <td style="width:10%">操作</td>
+          <table  class = "card-table">
+            <tr >
+              <Button type="info" style="margin:10px 0px 10px 20px">格式化JSON</Button>
+              <Button type="success" style="margin:10px 0px 10px 20px">复制结果</Button>
+              <Button type="warning" style="margin:10px 0px 10px 20px">新开页面</Button>
+              <Button type="error" style="margin:10px 0px 10px 20px">下载结果</Button>
             </tr>
             <tr>
-              <td> <Checkbox v-model="single">&nbsp;</Checkbox></td>
-              <td>
-                <Input value = "Accept-Encoding" placeholder="请输入..." class = "card-input"></Input>
-              </td>
-              <td><Input value = "application/json" placeholder="请输入..." class = "card-input"></Input></td>
-              <td><Button type="error">删除</Button></td>
-            </tr>
-            <tr>
-              <td> <Checkbox v-model="single">&nbsp;</Checkbox></td>
-              <td><Input value = "Accept" placeholder="请输入..." class = "card-input"></Input></td>
-              <td><Input value = "application/json" placeholder="请输入..." class = "card-input"></Input></td>
-              <td><Button type="error">删除</Button></td>
+               <Input style = "width : 90%;margin:20px"  type="textarea" :autosize="{minRows: 12,maxRows: 15}" placeholder="请输入..."></Input>
             </tr>
           </table>
     </Card>

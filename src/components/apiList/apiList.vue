@@ -66,17 +66,9 @@
         <TabPane label="接口调试" icon="speedometer">
 
           <v-apiTest ></v-apiTest>
-
-
-
         </TabPane>
         <TabPane label="接口同步" icon="loop">
-          <Alert type="success" show-icon style="margin:10px 0">接口开发进度</Alert>
-          <Progress :percent="25"></Progress>
-        <Progress :percent="45" status="active"></Progress>
-        <Progress :percent="65" status="wrong"></Progress>
-        <Progress :percent="100"></Progress>
-        <Progress :percent="25" hide-info></Progress>
+          <v-apiSync></v-apiSync>
         </TabPane>
     </Tabs>
 
@@ -89,6 +81,7 @@
   import Bus from '@/common/bus.js'
   import ApiShow from './apiShow'
   import ApiTest from './apiTest'
+  import ApiSync from './apiSync'
   export default {
     data(){
       return {
@@ -98,7 +91,8 @@
       ,
       components: {
         'v-apiShow' : ApiShow,
-        'v-apiTest' : ApiTest
+        'v-apiTest' : ApiTest,
+        'v-apiSync':ApiSync
       },
         methods: {
 
