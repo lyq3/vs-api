@@ -83,7 +83,7 @@
               <Button type="error" style="margin:10px 0px 10px 20px">下载结果</Button>
             </tr>
             <tr>
-               <Input style = "width : 90%;margin:20px"  type="textarea" :autosize="{minRows: 12,maxRows: 15}" placeholder="请输入..."></Input>
+               <Input v-model = "model1" style = "width : 90%;margin:20px"  type="textarea" :autosize="{minRows: 12,maxRows: 15}" placeholder="请输入..."></Input>
             </tr>
           </table>
     </Card>
@@ -93,10 +93,37 @@
 
 <script>
 export default {
+  /**
+jQuery JSONView 和
+json-viewer.js选一个
+*/
       data () {
           return {
               single :true,
-              model1 : ''
+              model1 : '{'+
+                      '"code": 100,'+
+                    '  "msg": "登陆成功",'+
+                    '  "total": null,'+
+                    '  "data": null,'+
+                    '  "rows": [ ],'+
+                    '  "otherRes": {'+
+                    '  "data": {'+
+                  '    "id": 2,'+
+                    '  "dept_id": 1,'+
+                    '  "userName": "lyq",'+
+                    '  "password": "123456",'+
+                    '  "swry_id": "15100000000",'+
+                    '  "leader_id": 1,'+
+                    '  "valid_status": "Y",'+
+                    '  "phone": "13438379796",'+
+                    '  "name": "罗云强",'+
+                    '  "leader_name": "敬云鹏",'+
+                    '  "dept_name": null,'+
+                  '    "szm": null,'+
+                    '  "roleList": [ ]'+
+                  '    }'+
+                    '  }'+
+                    '  }'
           }
       }
   }
