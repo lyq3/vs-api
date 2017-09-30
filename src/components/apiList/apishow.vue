@@ -1,5 +1,5 @@
 <template>
-  <Collapse v-model="value1">
+  <Collapse v-model="value1" >
     <Panel name="1">
         <span class = 'panel-title'>接口说明</span>
         <p slot="content" >

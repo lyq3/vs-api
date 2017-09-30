@@ -2,11 +2,12 @@
 <div>
   <Row>
   <Col span="4">
-    <Menu active-name="1-2" width="auto" :open-names="['1']">
+    <Menu active-name="1-2" width="auto" :open-names="['1']" >
       <div class="api-btn-left">
         <Button type="info" size="small" icon="android-add">添加接口</Button>
         <Button type="success" size="small" icon="android-create">修改接口</Button>
       </div>
+      <div class = "repositon">
         <Submenu name="1">
             <template slot="title">
                 <Icon type="ios-analytics"></Icon>
@@ -53,11 +54,12 @@
             <MenuItem name="3-1">选项 1</MenuItem>
             <MenuItem name="3-2">选项 2</MenuItem>
         </Submenu>
+      </div>
     </Menu>
     </Col>
     <Col :span="autospan">
       <!--这里是主体内容-->
-      <Tabs style="border-left:1px solid #DDDEE1;">
+      <Tabs class="repositon">
         <TabPane label="接口信息" icon="social-apple">
           <v-apiShow></v-apiShow>
         </TabPane>
@@ -117,4 +119,17 @@
   .api-btn-left button {
     margin-right: 15px;
   }
+  .repositon{
+    position:fixed;
+    overflow:auto;
+    height:83%;
+    padding: 0;
+    margin: 0
+  }
+
+  ::-webkit-scrollbar{
+    display:none;
+  }
+  ::-webkit-scrollbar{width:1px;}
+
 </style>
