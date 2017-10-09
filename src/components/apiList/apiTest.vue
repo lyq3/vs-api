@@ -79,13 +79,17 @@
             <tr >
               <Button v-on:click = "formatJSON" type="info" style="margin:10px 0px 10px 20px">格式化JSON</Button>
               <Button type="success" style="margin:10px 0px 10px 20px">复制结果</Button>
-              <Button type="warning" style="margin:10px 0px 10px 20px">新开页面</Button>
+              <Button type="warning" style="margin:10px 0px 10px 20px">生成Mock数据</Button>
               <Button type="error" style="margin:10px 0px 10px 20px">下载结果</Button>
             </tr>
             <tr>
                <Input v-model = "model1" style = "width : 90%;margin:20px"  type="textarea" :autosize="{minRows: 12,maxRows: 15}" placeholder="请输入..."></Input>
             </tr>
             <tr>
+              <CheckboxGroup v-model="order" style="line-height:40px;margin-left:10px">
+                <Checkbox  label="collapsed" >收缩所有节点</Checkbox>
+                <!-- <Checkbox label="withQuotes" >为Key添加双引号</Checkbox> -->
+            </CheckboxGroup>
               <pre  id= "json-renderer"></pre >
             </tr>
           </table>
@@ -106,6 +110,7 @@ json-viewer.js选一个
       data () {
           return {
               single :true,
+              order : [],
               model1 : '{'+
                       '"code": 100,'+
                     '  "msg": "登陆成功",'+
@@ -134,7 +139,18 @@ json-viewer.js选一个
       },
       methods : {
         formatJSON : function(){
-          $('#json-renderer').jsonViewer (eval('('+this.model1+')'));
+          //遍历数组
+          var option = {};
+          for(var i = 0 ; i<this.order.length ; i++){
+            if(this.order[i] == 'collapsed'){
+                option.collapsed = true;
+            }
+            if(this.order[i] == 'withQuotes'){
+                option.withQuotes = true;
+            }
+          }
+          console.log(option);
+          $('#json-renderer').jsonViewer (eval('('+this.model1+')'),option);
         }
       }
   }
