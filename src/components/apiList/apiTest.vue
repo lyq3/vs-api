@@ -77,13 +77,16 @@
             <div class = "card-title">返回结果</div>
           <table  class = "card-table">
             <tr >
-              <Button type="info" style="margin:10px 0px 10px 20px">格式化JSON</Button>
+              <Button v-on:click = "formatJSON" type="info" style="margin:10px 0px 10px 20px">格式化JSON</Button>
               <Button type="success" style="margin:10px 0px 10px 20px">复制结果</Button>
               <Button type="warning" style="margin:10px 0px 10px 20px">新开页面</Button>
               <Button type="error" style="margin:10px 0px 10px 20px">下载结果</Button>
             </tr>
             <tr>
                <Input v-model = "model1" style = "width : 90%;margin:20px"  type="textarea" :autosize="{minRows: 12,maxRows: 15}" placeholder="请输入..."></Input>
+            </tr>
+            <tr>
+              <pre  id= "json-renderer"></pre >
             </tr>
           </table>
     </Card>
@@ -92,6 +95,9 @@
 </template>
 
 <script>
+
+import JSONView from 'JSONView';
+import 'JSONViewCss'
 export default {
   /**
 jQuery JSONView 和
@@ -125,6 +131,11 @@ json-viewer.js选一个
                     '  }'+
                     '  }'
           }
+      },
+      methods : {
+        formatJSON : function(){
+          $('#json-renderer').jsonViewer (eval('('+this.model1+')'));
+        }
       }
   }
 </script>
